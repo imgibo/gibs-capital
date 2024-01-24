@@ -1,0 +1,34 @@
+.UserContainer {
+    margin: 50px 15px 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.UserContainer img {
+    height: 40px;
+}
+
+.UserContainer div {
+    flex-grow: 2;
+    margin-left: 10px;
+}
+
+.UserContainer p{
+    margin: 0;
+}
+
+.UserContainer p:nth-child(1){
+    font-size: var(--font-size-xs);
+}
+
+.UserContainer p:nth-child(2){
+    font-size: var(--font-size-sm);
+}
+
+.UserContainer i {
+    font-size: var(--font-size-xl);
+}
+
+.UserContainer i:hover {
+    color: var(--color-secondary);
+}

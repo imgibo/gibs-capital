@@ -1,0 +1,84 @@
+.sixthRow {
+    margin-top: 5px;
+    background-color: var(--color-whitesmoke);
+    color: var(--color-primary);
+    padding: 15px 10px 65px 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.sixthRow div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sixthRow div:nth-child(1) p:nth-child(1) {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    padding-left: 15px;
+}
+
+.sixthRow div:nth-child(1) p:nth-child(2) {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    font-weight: 300;
+    color: var(--color-jet);
+    padding-right: 15px;
+}
+
+.transaction-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--color-lightgray);
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 10px;
+    z-index: -1;
+}
+
+.transaction-card div:nth-child(2) {
+    flex-grow: 2;
+    margin-left: 10px;
+}
+
+.transaction-card p {
+    margin: 0;
+}
+
+.deposit p.trans-amount {
+    color: green;
+    font-weight: 500;
+    font-size: var(--font-size-xs);
+}
+
+.withdraw p.trans-amount,
+.transfer p.trans-amount {
+    color: red;
+    font-weight: 500;
+    font-size: var(--font-size-xs);
+}
+
+.trans-icon {
+    background-color: var(--color-jet);
+    border-radius: 50%;
+    padding: 5px;
+    font-size: var(--font-size-5xl);
+    color: var(--color-whitesmoke);
+}
+
+.trans-name {
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+}
+
+.trans-date, .trans-status {
+    font-size: var(--font-size-xs);
+    color: var(--color-jet);
+}
+
+.trans-amount, .trans-status {
+    text-align: end;
+}

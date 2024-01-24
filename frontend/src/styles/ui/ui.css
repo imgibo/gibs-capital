@@ -1,0 +1,9 @@
+.QuickLoanButton {
+    border: none;
+    background-color: var(--color-secondary);
+    font-size: var(--font-size-base);
+    padding: 10px 20px;
+    color: var(--color-whitesmoke);
+    font-family: Poppins;
+    border-radius: 35px;
+}

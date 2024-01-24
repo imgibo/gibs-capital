@@ -1,0 +1,94 @@
+.HomeContentContainer {
+    display: flex;
+    /* position: fixed; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 15px 0 15px;
+}
+
+.HomeContentContainer button{
+    font-size: var(--font-size-xs);
+    background-color: var(--color-jet);
+    color: var(--color-whitesmoke);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+
+}
+
+.HomeContentSubContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.HomeContentSubContainer div:nth-child(1) p:nth-child(1) {
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-size-5xl);
+}
+
+.HomeContentSubContainer .interestAccrued p:nth-child(1) {
+    font-size: var(--font-size-xs);
+}
+
+.interestAccrued {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    color: var(--color-green);
+}
+
+.HomeContentButtonContainer {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.HomeContentButtonContainer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    font-size: var(--font-size-sm);
+    margin-bottom: 20px;
+}
+
+.HomeContentButtonContainer div:nth-child(1) {
+    border-right: solid 1px var(--color-primary);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding: 0 20px 0 30px;
+    background-color: var(--color-jet);
+    width: 25%;
+}
+
+.HomeContentButtonContainer div:nth-child(2) {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 0 30px 0 20px;
+    background-color: var(--color-jet);
+    width: 25%;
+}
+
+.HomeContentSecondaryButton {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.HomeContentSecondaryButton div {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    font-size: var(--font-size-5xl);
+}
+
+.HomeContentSecondaryButton div i {
+    background-color: var(--color-jet);
+    border-radius: 50%;
+    padding: 10px;
+}

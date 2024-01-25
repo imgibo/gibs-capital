@@ -1,15 +1,18 @@
-import http from 'http';
 import express from 'express';
+import morgan from 'morgan';
+import cors from 'cors';
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
-app.use(express.json());
+morgan.token("body", function(req, res,) {
+    return JSON.stringify(req.body);
+});
 
-function generateId() {
-    const maxId = savings.length > 0 ? Math.max(...savings.map((n) => n.id)) : 0;
-    return maxId + 1;
-};
+app.use(cors());
+app.use(express.json());
+app.use(morgan(":method :url :status :body"));
+// app.use(logger);
 
 let savings = [
     {
@@ -28,6 +31,25 @@ let savings = [
         name: 'Skippy'
     },
 ];
+
+// morgan is available
+// function logger(req, res, next) {
+//     console.log(`Method: ${req.method}`);
+//     console.log(`Path: ${req.path}`);
+//     console.log(`Body: ${JSON.stringify(req.body)}`);
+//     console.log('------------------------');
+//     next();
+// };
+
+function unknownEndpoint(req, res) {
+    res.status(404).send({ error: 'unknown endpoint'});
+};
+
+function generateId() {
+    const maxId = savings.length > 0 ? Math.max(...savings.map((n) => n.id)) : 0;
+    return maxId + 1;
+};
+
 
 app.get("/", (_, res) => {
     res.send("<h1>Welcome to Gibs Capital</h1>");
@@ -56,7 +78,9 @@ app.post("/savings", (req, res) => {
 
     if (!body.amount) {
         return res.status(400).json({error: "Kindly deposit an amount"});
-    };
+    } if (body.amount <= 0) {
+        return res.status(400).json({error: "Kindly deposit amount greater than 0"});
+    }
 
     const amount = {
         name: body.name,
@@ -68,6 +92,8 @@ app.post("/savings", (req, res) => {
 
     res.status(201).json(amount);
 });
+
+app.use(unknownEndpoint);
 
 app.listen(PORT, () => {
     console.log(`The server is now running on port ${PORT}`)

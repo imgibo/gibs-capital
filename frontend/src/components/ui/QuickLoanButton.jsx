@@ -3,7 +3,7 @@ import '../../styles/ui/ui.css'
 
 function QuickLoanButton() {
   return (
-    <button class='QuickLoanButton'>Quick Loan</button>
+    <button className='QuickLoanButton'>Quick Loan</button>
   )
 }
 

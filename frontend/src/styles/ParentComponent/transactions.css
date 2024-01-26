@@ -1,3 +1,7 @@
+ul {
+    padding-left: 0;
+}
+
 .sixthRow {
     margin-top: 5px;
     background-color: var(--color-whitesmoke);
@@ -81,4 +85,8 @@
 
 .trans-amount, .trans-status {
     text-align: end;
+}
+
+input {
+    width: 130px;
 }

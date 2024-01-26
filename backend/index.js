@@ -15,21 +15,21 @@ app.use(morgan(":method :url :status :body"));
 // app.use(logger);
 
 let savings = [
-    {
-        id: 1,
-        amount: 100,
-        name: 'Gilbert'
-    },
-    {
-        id: 2,
-        amount: 200,
-        name: 'Donna'
-    },
-    {
-        id: 3,
-        amount: 300,
-        name: 'Skippy'
-    },
+    // {
+    //     id: 1,
+    //     amount: 100,
+    //     name: 'Gilbert'
+    // },
+    // {
+    //     id: 2,
+    //     amount: 200,
+    //     name: 'Donna'
+    // },
+    // {
+    //     id: 3,
+    //     amount: 300,
+    //     name: 'Skippy'
+    // },
 ];
 
 // morgan is available
@@ -49,6 +49,19 @@ function generateId() {
     const maxId = savings.length > 0 ? Math.max(...savings.map((n) => n.id)) : 0;
     return maxId + 1;
 };
+
+function formatDate(date) {
+    const options = {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    };
+    return date.toLocaleDateString('en-GB', options);
+}
 
 
 app.get("/", (_, res) => {
@@ -85,6 +98,8 @@ app.post("/savings", (req, res) => {
     const amount = {
         name: body.name,
         amount: body.amount,
+        timestamp: formatDate(new Date()),
+        isApproved: body.isApproved || 'pending',
         id: generateId(),
     };
 

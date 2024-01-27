@@ -4,7 +4,7 @@ import savingsService from '../../services/savings'
 
 function WithdrawForm({ onHideWithdrawForm }) {
     const [withdrawName, setWithdrawName] = useState('');
-    const [newWithdrawAmount, setWithdrawAmount] = useState(0);
+    const [newWithdrawAmount, setWithdrawAmount] = useState('');
 
     const handleWithdrawNameChange = (e) => {
         const name = (e.target.value);

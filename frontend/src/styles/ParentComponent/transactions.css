@@ -1,5 +1,7 @@
 ul {
     padding-left: 0;
+    height: 30dvh;
+    overflow-y: scroll;
 }
 
 .sixthRow {
@@ -9,6 +11,7 @@ ul {
     padding: 15px 10px 65px 10px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    bottom: 0;
 }
 
 .sixthRow div:nth-child(1) {

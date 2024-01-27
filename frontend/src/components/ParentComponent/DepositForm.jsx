@@ -4,7 +4,7 @@ import savingsService from '../../services/savings'
 
 function DepositForm({ onHideDepositForm }) {
     const [depositName, setDepositName] = useState('');
-    const [newDepositAmount, setDepositAmount] = useState(0);
+    const [newDepositAmount, setDepositAmount] = useState('');
 
     const handleDepositNameChange = (e) => {
         const name = (e.target.value);

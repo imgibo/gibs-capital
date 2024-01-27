@@ -1,9 +1,37 @@
 import React from 'react'
+import { useState } from 'react'
 import QuickLoanButton from '../../components/ui/QuickLoanButton'
 import '../../styles/ParentComponent/homeContent.css'
 import Transactions from './Transactions'
+import DepositForm from './DepositForm'
+import WithdrawForm from './WithdrawForm'
 
 function HomeContent() {
+    const [showDepositForm, setShowDepositForm] = useState(false);
+    const [showWithdrawForm, setShowWithdrawForm] = useState(false);
+    const [hideTransactions, setHideTransactions] = useState(true);
+
+    const toggleDepositForm = () => {
+        setShowDepositForm(!showDepositForm);
+        setHideTransactions(!hideTransactions);
+        setShowWithdrawForm(false)
+    };
+
+    const toggleWithdrawForm = () => {
+        setShowDepositForm(false);
+        setHideTransactions(!hideTransactions);
+        setShowWithdrawForm(!showWithdrawForm)
+    };
+
+    const hideDepositForm = () => {
+        setShowDepositForm(false);
+        setHideTransactions(true);
+    };
+    
+    const hideWithdrawForm = () => {
+        setHideTransactions(true);
+        setShowWithdrawForm(false);
+    };
 
   return (
     <>
@@ -24,11 +52,12 @@ function HomeContent() {
     </div>
     <div className='HomeContentButtonContainer'>
         <div>
-            <p>Deposit</p>
+            {/* <p>Deposit</p> */}
+            <button onClick={toggleDepositForm}>Deposit</button>
             <i className='bx bxs-arrow-to-bottom'></i>
         </div>
         <div>
-            <p>Withdraw</p>
+            <button onClick={toggleWithdrawForm}>Withdraw</button>
             <i className='bx bxs-arrow-from-bottom'></i>
         </div>
     </div>
@@ -39,7 +68,9 @@ function HomeContent() {
             <i className='bx bx-dots-horizontal-rounded'></i>
         </div>
     </div>
-    <Transactions />
+    {hideTransactions && <Transactions />}
+    {showDepositForm  && <DepositForm onHideDepositForm={hideDepositForm} />}
+    {showWithdrawForm  && <WithdrawForm onHideWithdrawForm={hideWithdrawForm} />}
     </>
   )
 }

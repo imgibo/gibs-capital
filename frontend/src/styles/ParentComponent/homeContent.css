@@ -74,6 +74,17 @@
     width: 25%;
 }
 
+.HomeContentButtonContainer button {
+    font-size: var(--font-size-md);
+    background-color: var(--color-jet);
+    color: var(--color-whitesmoke);
+    padding: 8px 15px;
+    margin: 8px 0;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
 .HomeContentSecondaryButton {
     display: flex;
     justify-content: center;

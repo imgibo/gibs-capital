@@ -1,10 +1,11 @@
-import generateId from '../utils/generateId.js';
 import formatDate from '../utils/formatDate.js';
+import Deposit from '../models/Deposit.js';
 
 let savings = [];
 
-function getSavings(_, res) {
-    res.json(savings);
+async function getSavings(_, res) {
+    const savings = await Deposit.find({}).then((savings) => savings);
+    return res.json(savings);
 }
 
 function getSavingsAmount(req, res) {
@@ -30,17 +31,17 @@ function postSavings(req, res) {
         return res.status(400).json({error: "Kindly deposit amount greater than 0"});
     }
 
-    const amount = {
+    const amount = new Deposit ({
         name: body.name,
         amount: body.amount,
         timestamp: formatDate(new Date()),
         isApproved: body.isApproved || 'pending',
         id: generateId(savings),
-    };
+    });
 
-    savings = savings.concat(amount);
+    const savedDeposit = amount.save().then((res) => res);
 
-    res.status(201).json(amount);
+    return res.status(201).json(savedDeposit);
 }
 
 export default {

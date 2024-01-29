@@ -36,7 +36,6 @@ function postSavings(req, res) {
         amount: body.amount,
         timestamp: formatDate(new Date()),
         isApproved: body.isApproved || 'pending',
-        id: generateId(savings),
     });
 
     const savedDeposit = amount.save().then((res) => res);

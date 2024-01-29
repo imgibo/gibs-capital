@@ -15,6 +15,17 @@ function Transactions() {
 
     const recentTransactions = sortedTransactions.slice(0, 5);
 
+    const formatDate = (timestamp) => {
+        return new Date(timestamp).toLocaleString('en-GB', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+    };
+
   return (
     <div className="sixthRow">
         <div>
@@ -22,14 +33,14 @@ function Transactions() {
             <p>See all</p>
         </div>
         <ul>
-            {recentTransactions.map((transaction) => (
-               <li className="transaction-card" key={transaction.id}>
+            {recentTransactions.map((transaction, index) => (
+               <li className="transaction-card"  key={index}>
                     <div className="trans-icon">
                         <i className='bx bxs-arrow-to-bottom'></i>
                     </div>
                     <div>
                         <p className="trans-name">{transaction.name}</p>
-                        <p className="trans-date">{transaction.timestamp}</p>
+                        <p className="trans-date">{formatDate(transaction.timestamp)}</p>
                     </div>
                     <div className="deposit">
                         <p className="trans-amount">Php {transaction.amount}</p>
